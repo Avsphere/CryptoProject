@@ -1,5 +1,33 @@
 extends layout
 
 block content
-  .cool
-    | This is cool
+  header.masthead.d-flex
+    .container.text-center(style="margin-top:10%;")
+      h1.mb-1 Pollards P-1 Factorization
+      h3.mb-5
+        em Given a number N = pq our task is to determine the prime factors p and q.
+        br 
+        em Pretend we find some number L such that p divides some value a^L - 1 and q does not divide a^L - 1. 
+        em Then we can recover p with p = gcd(a^L - 1, N)
+        br
+        em However, in practice finding this L is not always easy. Pollards observations is that if p-1 happens to be a product of small primes, then it will divide n!. 
+        br
+        em What we essentially do then, is for each number n = 2,3,4,5,... we choose some value a and compute f = gcd(a^(n!) - 1, N) if f is between 1 and N then we have found a factor
+      .input-group.mb-3.input-group-lg
+        .input-group-prepend
+          button#factorButt.btn.btn-outline-secondary(type='button' style="color:black;") Find Factors!
+        input.form-control#Nput(type='text', placeholder='Input a number you would like to factor!', aria-label='', aria-describedby='basic-addon1')
+      br
+      .container
+        #factorResults
+          
+
+    .overlay
+  section#about.content-section.bg-light
+    .container.text-center
+      .row
+        .col-lg-10.mx-auto
+          h2 Aaron Perrine - Math 470 Texas A&M
+          p.lead.mb-5
+            | This was done for a cryptography project. The code can be found 
+            a(href='https://github.com/Avsphere/CryptoProject/tree/master/src/js') here

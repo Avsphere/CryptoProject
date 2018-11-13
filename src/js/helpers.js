@@ -9,6 +9,11 @@ const extendedEuc = (a, b) => {
   }
 }
 
+const gcd = (a, b) => {
+    if ( !b ) { return a; }
+    return gcd(b, a % b);
+};
+
 const inverseMod = (b, n) => {
   let gcd, x, _na;
   [gcd, x, _na] = extendedEuc(b,n)
@@ -64,5 +69,6 @@ module.exports = {
   extendedEuc : extendedEuc,
   inverseMod : inverseMod,
   multiplyMod : multiplyMod,
-  powerMod : powerMod
+  powerMod : powerMod,
+  gcd : gcd
 }
